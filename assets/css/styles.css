@@ -1,0 +1,15 @@
+#weather-header {
+    background-color: #3452eb;
+}
+
+#location-current {
+    outline: solid 1px;
+}
+
+textarea {
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+}
