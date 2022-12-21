@@ -21,3 +21,5 @@ The user can enter the name of a city that they would like to find the current a
 N/A
 
 ## License
+
+Please refer to the LICENSE in the repo.
