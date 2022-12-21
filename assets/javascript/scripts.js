@@ -14,25 +14,28 @@ $(".btn").on("click", function () {
             setForecast(coords)
             // console.log(coords.list)
             const daily = await getCurrent(data[0].lat, data[0].lon)
+            // .then(() => setCurrent(daily))
             console.log(daily)
-            setCurrent(daily)
         })
 });
 
 //api fetch to get the coordinates for the entered city and get the current weather information
 async function getCurrent(lat, lon) {
-    let currentWeather = await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" +lon + "&units=imperial&appid=" + key)
+    let currentWeather = await fetch("https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + key)
         .then((res) => res.json())
     return currentWeather
 }
 
 //uses information from the get current function to set the values for the current day and weather conditions
-function setCurrent(currentData) {
-    document.getElementById("#daily-date").textContent(dayjs.unix(currentData.main.temp));
-    // document.getElementById("#daily-temp").textContent();
-    // document.getElementById("#daily-wind").textContent();
-    // document.getElementById("#daily-hum").textContent();
-}
+// function setCurrent(currentData) {
+//     let test = document.getElementById("daily-date")
+//     console.log(test)
+//     alert("hi")
+//     // document.getElementById("daily-date").textContent(dayjs.unix(currentData.main.temp));
+//     // document.getElementById("#daily-temp").textContent();
+//     // document.getElementById("#daily-wind").textContent();
+//     // document.getElementById("#daily-hum").textContent();
+// }
 
 //api fetch to convert the entered city name into latitude and longitude coordinates to provide the 5 day weather forecast
 async function getForecast(lat, lon) {
@@ -56,7 +59,7 @@ function setForecast(fiveDayData) {
 }
 
 
-
+//base api call links
 
 //base current weather link
 // api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt}&appid={API key}
