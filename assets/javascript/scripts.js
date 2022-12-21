@@ -47,8 +47,6 @@ async function getForecast(lat, lon) {
 //use information pulled from the getForecast function to set the values of the 5 divs set up for the 5 day weather forecast
 function setForecast(fiveDayData) {
     cardBody.each(function (idx) {
-        // console.log($(this).siblings())
-        // console.log(test3.list[0].main.temp)
         let currentIdx = 5 + (idx * 8)
 
         $(this).text(dayjs.unix(fiveDayData.list[currentIdx].dt));
