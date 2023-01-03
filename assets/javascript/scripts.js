@@ -70,7 +70,7 @@ $(function () {
     //onclick function for the search button to start 
     $("#newSearch").on("click", function () {
         let desiredCity = $(this).siblings(".searchCity").val();
-        if (searchPlaces.indexOf(desiredCity) === -1) {
+        if (searchPlaces.indexOf(desiredCity) === -1 && desiredCity !== "") {
             searchPlaces.push(desiredCity);
 
             historyButtons(desiredCity);
@@ -102,7 +102,6 @@ $(function () {
 
                 const daily = await getCurrent(data[0].lat, data[0].lon)
                 setCurrent(daily)
-                console.log(daily)
             })
     });
 
