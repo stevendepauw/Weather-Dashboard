@@ -39,7 +39,7 @@ $(function () {
 
     //api fetch to convert the entered city name into latitude and longitude coordinates to provide the 5 day weather forecast
     async function getForecast(lat, lon) {
-        let getFiveDay = await fetch("http://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + key)
+        let getFiveDay = await fetch("https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + key)
             .then((res) => res.json())
         return getFiveDay
     }
@@ -75,7 +75,7 @@ $(function () {
 
             historyButtons(desiredCity);
 
-            fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + desiredCity + "&appid=" + key)
+            fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + desiredCity + "&appid=" + key)
                 .then((data) => data.json())
                 .then(async (data) => {
                     const coords = await getForecast(data[0].lat, data[0].lon)
@@ -95,7 +95,7 @@ $(function () {
         let desiredCity = $(this).text();
         console.log(desiredCity);
 
-        fetch("http://api.openweathermap.org/geo/1.0/direct?q=" + desiredCity + "&appid=" + key)
+        fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + desiredCity + "&appid=" + key)
             .then((data) => data.json())
             .then(async (data) => {
                 const coords = await getForecast(data[0].lat, data[0].lon)
