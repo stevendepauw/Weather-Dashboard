@@ -91,9 +91,7 @@ $(function () {
 
     //onclick function for the search history buttons to search
     $("#searchHistory").on("click", ".historyCity", function () {
-        console.log("clicked");
         let desiredCity = $(this).text();
-        console.log(desiredCity);
 
         fetch("https://api.openweathermap.org/geo/1.0/direct?q=" + desiredCity + "&appid=" + key)
             .then((data) => data.json())
